@@ -13,7 +13,7 @@ const Pool = require('pg').Pool;
 // this code will work and a table will be created if you have already created the "testWad" database.
 const pool = new Pool({
     user: "postgres",
-    password: "", // Enter your password here
+    password: "delta", // Enter your password here
     database: "testWad", //Try to use the same name for your database
     host: "localhost",
     port: "5432"
@@ -46,6 +46,24 @@ const createTblQuery = `
 execute(createTblQuery).then(result => {
     if (result) {
         console.log('If does not exists, create the "posttable" table');
+    }
+});
+
+/*
+gen_random_uuid() A system function to generate a random Universally Unique IDentifier (UUID)
+An example of generated uuid:  32165102-4866-4d2d-b90c-7a2fddbb6bc8
+*/
+
+const createTblQuery2 = `
+    CREATE TABLE IF NOT EXISTS "users" (
+        id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+        email VARCHAR(200) NOT NULL UNIQUE,
+        password VARCHAR(200) NOT NULL 
+    );`;
+
+execute(createTblQuery2).then(result => {
+    if (result) {
+        console.log('Table "users" is created');
     }
 });
 
