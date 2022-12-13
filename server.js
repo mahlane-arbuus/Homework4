@@ -130,8 +130,7 @@ app.get('/auth/logout', (req, res) => {
     res.status(202).clearCookie('jwt').json({ "Msg": "cookie cleared" }).send
 });
 
-/* 
-// Task 1
+
 app.post('/api/posts', async(req, res) => {
     try {
         console.log("a post request has arrived");
@@ -147,10 +146,8 @@ app.post('/api/posts', async(req, res) => {
         console.error(err.message);
     }
 }); 
-*/
 
-/* 
-// Task 2
+
 app.get('/api/posts', async(req, res) => {
     try {
         console.log("get posts request has arrived");
@@ -162,13 +159,11 @@ app.get('/api/posts', async(req, res) => {
         console.error(err.message);
     }
 });
- */
 
-/* 
-// Task 3
+
 app.get('/api/posts/:id', async(req, res) => {
     try {
-        console.log("get a post with route parameter  request has arrived");
+        console.log("get a post with route parameter request has arrived");
         // The req.params property is an object containing properties mapped to the named route "parameters". 
         // For example, if you have the route /posts/:id, then the "id" property is available as req.params.id.
         const { id } = req.params; // assigning all route "parameters" to the id "object"
@@ -182,11 +177,9 @@ app.get('/api/posts/:id', async(req, res) => {
     } catch (err) {
         console.error(err.message);
     }
-}); 
-*/
+});
 
-/* 
-// Task 4
+
 app.put('/api/posts/:id', async(req, res) => {
     try {
         const { id } = req.params;
@@ -200,10 +193,8 @@ app.put('/api/posts/:id', async(req, res) => {
         console.error(err.message);
     }
 });
- */
 
-/* 
-// Task 5
+
 app.delete('/api/posts/:id', async(req, res) => {
     try {
         const { id } = req.params;
@@ -216,8 +207,7 @@ app.delete('/api/posts/:id', async(req, res) => {
     } catch (err) {
         console.error(err.message);
     }
-}); 
-*/
+});
 
 app.listen(port, () => {
     console.log("Server is listening to port " + port)
